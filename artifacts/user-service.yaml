@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: user-service
-          image: user-service:20251214161528
+          image: ttl.sh/lab11-1765759454/user-service:20251214161528
           imagePullPolicy: IfNotPresent
           env:
             - name: PORT

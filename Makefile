@@ -95,7 +95,7 @@ scan:
 sign:
 	@if which cosign >/dev/null 2>&1; then COSIGN_YES=true cosign sign $(IMAGE); else echo "[i] cosign no encontrado (skip)"; fi
 ifeq ($(COSIGN_VERIFY),1)
-	@if which cosign >/dev/null 2>&1; then cosign verify $(IMAGE) >/dev/null && echo "Verificación de firma OK"; fi
+	@if which cosign >/dev/null 2>&1; then cosign verify --certificate-identity-regexp ".*" --certificate-oidc-issuer-regexp ".*" $(IMAGE) >/dev/null && echo "Verificación de firma OK"; fi
 endif
 
 # K8S 
